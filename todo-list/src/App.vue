@@ -11,21 +11,21 @@
 </template>
 
 <script>
+import Store from './components/store';
 export default {
   data (){
     return {
       aa:'This is a todo-list',
-      items:[
-        {
-          label:'coding',
-          isF:true
-        },
-        {
-          label:'working',
-          isF:false
-        }
-      ],
+      items:Store.fetch(),
       newItem:''
+    }
+  },
+  watch:{
+    'items':{
+      handler(val,oldVal){
+       Store.save(this.items)
+      },
+      deep:true
     }
   },
   methods:{
@@ -36,13 +36,12 @@ export default {
         this.items.push({
             label:this.newItem,
             isF:false
-          })
+          });
         this.newItem = '';
       }
   }
 }
 </script>
-
 <style>
 html {
   height: 100%;
