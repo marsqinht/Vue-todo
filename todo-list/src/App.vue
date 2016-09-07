@@ -33,6 +33,10 @@ export default {
         a.isF=!a.isF
       },
       addItem(){
+        if (!this.newItem) {
+          alert('请输入文字!');
+          return;
+        };
         this.items.push({
             label:this.newItem,
             isF:false

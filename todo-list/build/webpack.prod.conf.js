@@ -44,9 +44,9 @@ var webpackConfig = merge(baseWebpackConfig, {
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: process.env.NODE_ENV === 'testing'
-        ? 'index.html'
+        ? 'index.chtml'
         : config.build.index,
-      template: 'index.html',
+      template: 'index.chtml',
       inject: true,
       minify: {
         removeComments: true,
